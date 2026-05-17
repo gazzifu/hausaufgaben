@@ -4,7 +4,7 @@
 
 const CONFIG = {
   // Supabase-Projektdaten (aus deinem Supabase-Dashboard)
-  supabaseUrl:  'https://hausaufgaben.supabase.co',
+  supabaseUrl:  'https://thsuuzavjvesdswavgjc.supabase.co',
   supabaseKey:  'sb_publishable_8nymQ1ei-ENFz0zteR4aqw_Y3TC0O5M',
 
   // Nur E-Mails mit dieser Domain dürfen sich einloggen.
