@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hausaufgaben</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="screen active">
+    <div class="login-box">
+      <div class="logo-mark">HA</div>
+      <h1>Hausaufgaben<span class="dot">.</span></h1>
+      <p class="subtitle">Melde dich mit deiner Schul-E-Mail an.<br>Du bekommst einen Login-Link zugeschickt.</p>
+      <div class="input-group">
+        <input type="email" id="email-input" placeholder="vorname.nachname@schule.de" autocomplete="email" />
+        <button id="magic-link-btn">Link senden →</button>
+      </div>
+      <p id="login-msg" class="login-msg"></p>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app-screen" class="screen">
+    <header>
+      <div class="header-left">
+        <span class="logo-mark small">HA</span>
+        <span class="header-title">Hausaufgaben</span>
+      </div>
+      <div class="header-right">
+        <span id="user-email-display"></span>
+        <button id="logout-btn" class="btn-ghost">Abmelden</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ADD HOMEWORK -->
+      <section class="card add-card">
+        <h2>Hausaufgabe eintragen</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="subject-input">Fach</label>
+            <select id="subject-input">
+              <option value="">— Fach wählen —</option>
+              <option>Mathematik</option>
+              <option>Deutsch</option>
+              <option>Englisch</option>
+              <option>Physik</option>
+              <option>Chemie</option>
+              <option>Biologie</option>
+              <option>Geschichte</option>
+              <option>Geographie</option>
+              <option>Informatik</option>
+              <option>Kunst</option>
+              <option>Musik</option>
+              <option>Sport</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="due-date-input">Fällig am</label>
+            <input type="date" id="due-date-input" />
+          </div>
+          <div class="form-group full-width">
+            <label for="desc-input">Beschreibung</label>
+            <textarea id="desc-input" rows="3" placeholder="Was ist zu tun?"></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label>Lösung als PDF (optional)</label>
+            <div class="file-drop" id="file-drop">
+              <span id="file-label">PDF hier ablegen oder klicken</span>
+              <input type="file" id="solution-file" accept="application/pdf" />
+            </div>
+          </div>
+        </div>
+        <button id="add-btn" class="btn-primary">Eintragen</button>
+        <p id="add-msg" class="add-msg"></p>
+      </section>
+
+      <!-- HOMEWORK LIST -->
+      <section class="list-section">
+        <div class="list-header">
+          <h2>Aktuelle Aufgaben</h2>
+          <div class="filter-bar">
+            <select id="filter-subject">
+              <option value="">Alle Fächer</option>
+              <option>Mathematik</option>
+              <option>Deutsch</option>
+              <option>Englisch</option>
+              <option>Physik</option>
+              <option>Chemie</option>
+              <option>Biologie</option>
+              <option>Geschichte</option>
+              <option>Geographie</option>
+              <option>Informatik</option>
+              <option>Kunst</option>
+              <option>Musik</option>
+              <option>Sport</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+        </div>
+        <div id="hw-list" class="hw-list">
+          <div class="loading">Lade Hausaufgaben…</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
