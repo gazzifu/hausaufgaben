@@ -27,88 +27,60 @@
   <!-- MAIN APP -->
   <div id="app-screen" class="screen">
     <header>
-      <div class="header-left">
-        <span class="logo-mark small">HA</span>
-        <span class="header-title">Hausaufgaben</span>
+      <button id="prev-day" class="nav-btn">&#8592;</button>
+      <div class="header-center">
+        <span id="date-display" class="date-display"></span>
+        <button id="today-btn" class="today-btn">Heute</button>
       </div>
+      <button id="next-day" class="nav-btn">&#8594;</button>
       <div class="header-right">
-        <span id="user-email-display"></span>
-        <button id="logout-btn" class="btn-ghost">Abmelden</button>
+        <button id="add-hw-btn" class="btn-add" title="Hausaufgabe eintragen">+</button>
+        <button id="logout-btn" class="btn-ghost" title="Abmelden">↩</button>
       </div>
     </header>
 
     <main>
-      <!-- ADD HOMEWORK -->
-      <section class="card add-card">
-        <h2>Hausaufgabe eintragen</h2>
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="subject-input">Fach</label>
-            <select id="subject-input">
-              <option value="">— Fach wählen —</option>
-              <option>Mathematik</option>
-              <option>Deutsch</option>
-              <option>Englisch</option>
-              <option>Physik</option>
-              <option>Chemie</option>
-              <option>Biologie</option>
-              <option>Geschichte</option>
-              <option>Geographie</option>
-              <option>Informatik</option>
-              <option>Kunst</option>
-              <option>Musik</option>
-              <option>Sport</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="due-date-input">Fällig am</label>
-            <input type="date" id="due-date-input" />
-          </div>
-          <div class="form-group full-width">
-            <label for="desc-input">Beschreibung</label>
-            <textarea id="desc-input" rows="3" placeholder="Was ist zu tun?"></textarea>
-          </div>
-          <div class="form-group full-width">
-            <label>Lösung als PDF (optional)</label>
-            <div class="file-drop" id="file-drop">
-              <span id="file-label">PDF hier ablegen oder klicken</span>
-              <input type="file" id="solution-file" accept="application/pdf" />
-            </div>
-          </div>
-        </div>
-        <button id="add-btn" class="btn-primary">Eintragen</button>
-        <p id="add-msg" class="add-msg"></p>
-      </section>
-
-      <!-- HOMEWORK LIST -->
-      <section class="list-section">
-        <div class="list-header">
-          <h2>Aktuelle Aufgaben</h2>
-          <div class="filter-bar">
-            <select id="filter-subject">
-              <option value="">Alle Fächer</option>
-              <option>Mathematik</option>
-              <option>Deutsch</option>
-              <option>Englisch</option>
-              <option>Physik</option>
-              <option>Chemie</option>
-              <option>Biologie</option>
-              <option>Geschichte</option>
-              <option>Geographie</option>
-              <option>Informatik</option>
-              <option>Kunst</option>
-              <option>Musik</option>
-              <option>Sport</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-        </div>
-        <div id="hw-list" class="hw-list">
-          <div class="loading">Lade Hausaufgaben…</div>
-        </div>
-      </section>
+      <div id="hw-list" class="hw-list">
+        <div class="loading">Lade Hausaufgaben…</div>
+      </div>
     </main>
+  </div>
+
+  <!-- ADD OVERLAY -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-box">
+      <div class="overlay-header">
+        <h2>Hausaufgabe eintragen</h2>
+        <button id="close-overlay" class="btn-close">✕</button>
+      </div>
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label for="subject-input">Fach</label>
+          <select id="subject-input">
+            <option value="">— Fach wählen —</option>
+            <option>Mathematik</option>
+            <option>Deutsch</option>
+            <option>Englisch</option>
+            <option>Physik</option>
+            <option>Chemie</option>
+            <option>Biologie</option>
+            <option>Geschichte</option>
+            <option>Geographie</option>
+            <option>Informatik</option>
+            <option>Kunst</option>
+            <option>Musik</option>
+            <option>Sport</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <label for="desc-input">Beschreibung</label>
+          <textarea id="desc-input" rows="4" placeholder="Was ist zu tun?"></textarea>
+        </div>
+      </div>
+      <button id="add-btn" class="btn-primary">Eintragen</button>
+      <p id="add-msg" class="add-msg"></p>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
